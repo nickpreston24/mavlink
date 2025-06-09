@@ -2,6 +2,7 @@ using CodeMechanic.Shargs;
 using Serilog;
 using Serilog.Core;
 using Microsoft.Extensions.DependencyInjection;
+using Spectre.Console;
 
 namespace mavlink;
 
@@ -28,9 +29,20 @@ internal class Program
 
     static async Task RunAsCli(ArgsMap arguments, Logger logger)
     {
+        RunFiglet();
         var services = CreateServices(arguments, logger);
         Application app = services.GetRequiredService<Application>();
         await app.Run();
+    }
+
+    private static void RunFiglet()
+    {
+        // var font = FigletFont.Load("starwars.flf");
+
+        AnsiConsole.Write(
+            new FigletText(nameof(mavlink))
+                .LeftJustified()
+                .Color(Color.Red));
     }
 
     private static ServiceProvider CreateServices(
@@ -41,7 +53,7 @@ internal class Program
             .AddSingleton(arguments)
             .AddSingleton<Logger>(logger)
             .AddSingleton<Application>()
-            .AddSingleton<TodoService>()
+            .AddSingleton<FuzzySearchService>()
             .AddSingleton<WeatherService>()
             .BuildServiceProvider();
 

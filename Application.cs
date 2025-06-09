@@ -8,11 +8,11 @@ public class Application
 {
     private readonly Logger logger;
 
-    private readonly TodoService todos;
+    private readonly FuzzySearchService todos;
     private readonly WeatherService weather;
 
     public Application(Logger logger
-        , TodoService todos
+        , FuzzySearchService todos
         , WeatherService weather
     )
     {
@@ -28,7 +28,6 @@ public class Application
     }
 }
 
-
-public class TodoService : QueuedService {}
-public class WeatherService : QueuedService {}
-
+public class WeatherService : QueuedService
+{
+}

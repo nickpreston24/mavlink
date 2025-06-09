@@ -1,3 +1,5 @@
+mavlink-devguide/
+
 *.log
 *.nupkg
 .forklift/
