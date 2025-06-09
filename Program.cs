@@ -1,7 +1,7 @@
 using CodeMechanic.Shargs;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Core;
-using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console;
 
 namespace mavlink;
@@ -37,8 +37,6 @@ internal class Program
 
     private static void RunFiglet()
     {
-        // var font = FigletFont.Load("starwars.flf");
-
         AnsiConsole.Write(
             new FigletText(nameof(mavlink))
                 .LeftJustified()

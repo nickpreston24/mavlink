@@ -1,1 +1,1 @@
-dotnet run --search="fubar"
+dotnet watch run --search="system"
